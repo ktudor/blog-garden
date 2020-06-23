@@ -1,0 +1,40 @@
+Test scenarios
+  * Menu (if logged in, logout)
+    > Hamburger
+      . Home
+      . Category
+      . Post
+    > Sign Up
+    > Sign In
+  * Sign In/Sign Up
+    > Invalid sign in 
+      . Enter newuser/newuser
+      . Error: email or password is incorrect
+    > Sign Up
+      . Click Sign Up link
+        + goes to register page
+      . Enter registration information
+        + email: newuser
+        + password: newuser
+        + first name: New
+        + last name: User
+      . Click Sign Up button
+        + goes to home    <- should it redirect to original page?
+        + New menu activated (logout only option)
+        + Sign Up and Sign In buttons removed
+  * Authentication
+    > Access page with no authentication requirement
+      . Select Post from menu
+      . Goes to Post page
+    > Access page with authentication requirement
+      . Select Category from menu
+      . Redirect to login page
+    > Valid sign in
+      Redirect to original link (Admin page)
+  * Sign in with tester/tester
+    > links are found under Testing menu
+  * Error management
+    > Click Error button
+      My Pretty Error message
+    > Click Invalid HTTP button
+      404 Not found

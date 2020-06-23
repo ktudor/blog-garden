@@ -1,0 +1,9 @@
+Added role-based authentication
+  Source: https://jasonwatmore.com/post/2019/08/06/angular-8-role-based-authorization-tutorial-with-example
+
+  Files affected:
+    app\_helpers
+      * auth.guard.ts
+        - Added route/role check
+      * error.interceptor.ts
+        - Added 403 error

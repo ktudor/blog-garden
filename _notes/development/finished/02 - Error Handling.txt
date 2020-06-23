@@ -1,0 +1,14 @@
+Add global error handler and display in window
+  Source: https://indepth.dev/expecting-the-unexpected-best-practices-for-error-handling-in-angular/
+  Updates: https://stackblitz.com/github/melcor76/global-error-handling
+
+  Files affected:
+    app\_helpers
+      * error.interceptor.ts
+        . updated version removed a number of methods.
+        . possibly revisit in future.
+      * global.error.handler.ts
+    app\_services
+      * error.service.ts
+      * logging.service.ts
+      * notification.service.ts

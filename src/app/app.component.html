@@ -1,0 +1,26 @@
+<mat-toolbar>
+  <button mat-button [matMenuTriggerFor]="homeMenu"><mat-icon>list</mat-icon></button>
+  <mat-menu #homeMenu="matMenu">
+    <div>
+      <button mat-menu-item [routerLink]="['/']">Home</button>
+      <button mat-menu-item [routerLink]="['/category']">Category</button>
+      <button mat-menu-item [routerLink]="['/post']">Post</button>
+    </div>
+  </mat-menu>
+  <button *ngIf="!isLoggedIn" mat-menu-item [routerLink]="['/users/register']">Sign Up</button>
+  <button *ngIf="!isLoggedIn" mat-menu-item [routerLink]="['/users/login']">Sign In</button>
+  <button *ngIf="isLoggedIn" mat-button [matMenuTriggerFor]="userMenu">{{user.firstName}}</button>
+  <mat-menu #userMenu="matMenu">
+    <div *ngIf="isAdmin">
+      <button mat-menu-item [routerLink]="['/admin']">Admin</button>
+    </div>
+    <div *ngIf="isLoggedIn">
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </div>
+    <div *ngIf="isTester">
+      <button class="gblog-test" mat-menu-item (click)="throwError()">Error</button>
+      <button class="gblog-test" mat-menu-item (click)="throwInvalidHttpError()">Invalid HTTP</button>
+    </div>
+  </mat-menu>
+</mat-toolbar>
+<router-outlet></router-outlet>

@@ -1,0 +1,4 @@
+When route fails canActivate, redirects user to login page with redirect url
+  Source: https://angular.io/guide/router#candeactivate-handling-unsaved-changes
+
+  Files affected:

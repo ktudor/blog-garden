@@ -1,0 +1,79 @@
+From: https://www.djamware.com/post/5d88cb43e7939eec17dc4c89/mean-stack-angular-8-tutorial-build-a-simple-blog-cms
+
+Look at further:
+* Pre triggers adding create/update date in schema
+  - https://www.freecodecamp.org/news/introduction-to-mongoose-for-mongodb-d2a7aa593c57/
+* Another version with interfaces
+  - https://medium.com/@agentwhs/complete-guide-for-typescript-for-mongoose-for-node-js-8cc0a7e470c1
+
+Three command windows:
+* Angular server
+  - ng serve
+* Nodemon server (from .\backend directory)
+  - npx nodemon app.js
+* MongoDB
+  - "C:\Program Files\MongoDB\Server\4.2\bin\mongod.exe" --dbpath=".\database"
+
+Steps to building brand new application
+* Install Express.js application (only need to do once)
+  - npm install -g express-generator
+* Run app to pre-build application
+  - express <app name> --no-view
+* Install NPM modules
+  - cd <app name>
+  - npm install
+* Start app
+  - npm start
+
+Build client
+* Install Angular CLI
+  - npm install -g @angular/cli
+* Create client
+  - ng new client
+* Start app
+  - The serve command requires to be run in an Angular project, but a project definition could not be found.
+  - Must start in client directory
+
+
+https://medium.com/@cyrilletuzi/typescript-strictly-typed-strict-mode-is-not-enough-40df698e2deb
+tsconfig.json updates
+* Make compiler strict with typing
+  - compilerOptions -> "strict": true
+* Disregard TS2564 errors with strict typing
+  - "strictPropertyInitialization": false
+* build still worked
+
+Add Angular Material and CDK
+* Install libs
+  - ng add @angular/material
+* When updating app.module.ts with import {...} from '@angular/material', got error
+  - File index.d.ts' is not a module.ts(2306)
+    . Originally updated index.d.ts (which may be the cause of compile errors)
+  - Found had to import from specific files
+    . import { MatInputModule } from '@angular/material/input'
+* Build worked
+
+Add CKEditor
+* Install libs
+  - Originally installed ckeditor4-angular. Mat classes need ckeditor5+
+* Installed version 5 libs (https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/frameworks/angular.html)
+  - npm install --save @ckeditor/ckeditor5-angular
+    > Have to install specific kind:
+      . ckeditor5-build-classic		<- chose this one
+      . ckeditor5-build-inline
+      . ckeditor5-build-balloon
+      . ckeditor5-build-balloon-block
+      . ckeditor5-build-decoupled-document
+  - npm install --save @ckeditor/ckeditor5-build-classic
+  - npm install --save mat-contenteditable
+* Build error
+* Added typing file
+  - ckeditor5-build-classic.d.ts
+https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/frameworks/angular.html#Strict-mode-project-tips
+* Build worked
+
+Updated Authentication
+https://jasonwatmore.com/post/2020/05/15/angular-9-role-based-authorization-tutorial-with-example
+
+
+"C:\Program Files\MongoDB\Server\4.2\bin\mongod.exe" --dbpath="c:\data\db"

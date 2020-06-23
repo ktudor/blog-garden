@@ -1,0 +1,33 @@
+<div class="gblog-container mat-elevation-z8">
+  <div class="gblog-loading-shade"
+        *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <mat-card class="example-card">
+    <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+      <mat-form-field class="gblog-full-width">
+        <input matInput type="email" placeholder="Email" formControlName="email"
+                [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">Please enter your email</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="gblog-full-width">
+        <input matInput type="password" placeholder="Password" formControlName="password"
+                [errorStateMatcher]="matcher">
+        <mat-error>
+          <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter your password</span>
+        </mat-error>
+      </mat-form-field>
+      <div class="gblog-button-row">
+        <button type="submit" [disabled]="!loginForm.valid" mat-flat-button color="primary">Sign In</button>
+      </div>
+      <span *ngIf="isLoadingResults" class="spinner-border spinner-border-sm mr-1"></span>
+    </form>
+    <div>
+      <div class="gblog-button-row">
+        <a href="/users/register/" style="padding: 0 16px;">Sign Up</a>
+      </div>
+    </div>
+  </mat-card>
+</div>

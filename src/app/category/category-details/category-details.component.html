@@ -1,0 +1,19 @@
+<div class="gblog-container mat-elevation-z8">
+    <div class="gblog-loading-shade"
+          *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="gblog-button-row">
+      <a class="gblog-button" mat-flat-button color="primary" [routerLink]="['/category']"><mat-icon>list</mat-icon></a>
+    </div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title><h2>{{category.catName}}</h2></mat-card-title>
+        <mat-card-subtitle>{{category.catDesc}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions>
+        <a class="gblog-button" mat-flat-button color="primary" [routerLink]="['/category/edit', category?.id  || 'all']"><mat-icon>edit</mat-icon></a>
+        <a class="gblog-button" mat-flat-button color="warn" (click)="deleteCategory(category.id)"><mat-icon>delete</mat-icon></a>
+      </mat-card-actions>
+    </mat-card>
+  </div>

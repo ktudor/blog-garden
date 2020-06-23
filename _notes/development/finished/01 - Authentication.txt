@@ -1,0 +1,55 @@
+Potential other sources:
+https://medium.com/@ryanchenkie_40935/angular-authentication-using-the-http-client-and-http-interceptors-2f9d1540eb8
+
+Add AuthGuard to routes
+  Source: https://jasonwatmore.com/post/2019/06/22/angular-8-jwt-authentication-example-tutorial
+
+  Files affected:
+    app\_helpers
+      * auth.guard.ts
+      * error.interceptor.ts
+      * fake-backend.ts
+      * jwt.interceptor.ts
+    app\_models
+      * user.ts
+    app\_services
+      * authentication.service.ts
+      * user.service.ts
+    app\home
+      * home.component.html & ts
+    app\auth\login
+      * login.component.html & ts
+    app
+      * app.module.ts
+
+  Test scenarios
+    > Click Error button
+      My Pretty Error message
+    > Click Invalid HTTP button
+      404 Not found
+    > Auth URL (not signed in)
+      Redirect to Login page
+      > Invalid login
+        Invalid email/password error <- failed
+      > Valid login
+        Redirect to original link (Admin page)
+    > Not Auth URL
+      Goes to Post page
+    
+When route fails canActivate, redirects user to login page with redirect url
+  Source: https://angular.io/guide/router#canactivate-requiring-authentication
+  Local: C:\Files\Development\Angular\_training\angular.io.router
+
+  Files affected:
+    app\_helpers
+      * auth.guard.ts
+        . store attempted URL in authenticationService, instead of a query param
+    app\_services
+      * authentication.service.ts
+        . return returnUrl instead of user when authenticate
+    app\auth\login
+      * login.component.html & ts
+        . use returned data in router navigate
+        . throw error to handler (typically bad password)
+    app
+      * app.module.ts

@@ -1,0 +1,43 @@
+<div class="gblog-container mat-elevation-z8">
+    <div class="gblog-loading-shade"
+         *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <mat-card class="example-card">
+      <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit(registerForm.value)">
+        <mat-form-field class="gblog-full-width">
+          <input matInput type="email" placeholder="Email" formControlName="email"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">Please enter your email</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="gblog-full-width">
+          <input matInput type="password" placeholder="Password" formControlName="password"
+                 [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">Please enter your password</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="gblog-full-width">
+          <input matInput type="firstName" placeholder="First Name" formControlName="firstName"
+                  [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!registerForm.get('firstName').valid && registerForm.get('firstName').touched">Please enter your First Name</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="gblog-full-width">
+          <input matInput type="lastName" placeholder="Last Name" formControlName="lastName"
+                  [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!registerForm.get('lastName').valid && registerForm.get('lastName').touched">Please enter your Last Name</span>
+          </mat-error>
+        </mat-form-field>
+        <div class="gblog-button-row">
+          <button type="submit" [disabled]="!registerForm.valid" mat-flat-button color="primary">Sign Up</button>
+        </div>
+        <span *ngIf="isLoadingResults" class="spinner-border spinner-border-sm mr-1"></span>
+        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+      </form>
+    </mat-card>
+  </div>
