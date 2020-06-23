@@ -1,4 +1,4 @@
-import { Role } from "./role";
+import { RoleEnum } from "./enums/roleEnum";
 
 export class User {
     id: number;
@@ -6,6 +6,6 @@ export class User {
     password: string;
     firstName: string;
     lastName: string;
-    role: Role;
+    role: RoleEnum;
     token?: string;
 }

@@ -5,7 +5,7 @@ import { first } from 'rxjs/operators';
 import { ErrorStateMatcher } from '@angular/material/core';
 
 import { AuthenticationService } from '@app/_services';
-import { Role, User } from '@app/_models';
+import { RoleEnum, User } from '@app/_models';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
   password = '';
   firstName = '';
   lastName = '';
-  role: Role = Role.User;
+  role: RoleEnum = RoleEnum.User;
 
   matcher = new MyErrorStateMatcher();
   isLoadingResults = false;

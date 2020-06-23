@@ -16,7 +16,7 @@ import { PostEditComponent } from './post/post-edit/post-edit.component';
 import { BycategoryComponent } from './bycategory/bycategory.component';
 
 import { AuthGuard } from './_helpers/auth.guard';
-import { Role } from '@app/_models';
+import { RoleEnum } from '@app/_models';
 
 const routes: Routes = [
   {
@@ -35,7 +35,7 @@ const routes: Routes = [
     component: AdminComponent,
     data: {
       title: 'Blog Admin',
-      roles: [Role.Admin]
+      roles: [RoleEnum.Admin]
     }
   },
   {

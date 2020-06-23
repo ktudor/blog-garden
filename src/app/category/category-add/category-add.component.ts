@@ -55,9 +55,8 @@ export class CategoryAddComponent implements OnInit {
           this.router.navigate(['/category']);
         },
         error => {
-          console.log(error);
           this.isLoadingResults = false;
-          throw new Error(error);
+          throw error;
         });
     }
 

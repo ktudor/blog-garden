@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 import { environment } from '@environments/environment';
-import { Category, User, Role } from '@app/_models';
+import { Category, User, RoleEnum } from '@app/_models';
 import { AuthenticationService, CategoryService } from '@app/_services';
 
 @Component({
@@ -43,11 +43,11 @@ export class AppComponent implements OnInit {
   }
 
   get isAdmin() {
-    return this.user && this.user.role === Role.Admin;
+    return this.user && this.user.role === RoleEnum.Admin;
   }
 
   get isTester() {
-    return this.user && this.user.role === Role.Tester;
+    return this.user && this.user.role === RoleEnum.Tester;
   }
 
   logout() {

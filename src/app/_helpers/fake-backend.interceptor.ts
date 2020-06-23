@@ -3,13 +3,13 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
-import { User, Role, Category, Post } from '@app/_models';
+import { User, RoleEnum, Category, Post } from '@app/_models';
 import { AuthenticationService } from '@app/_services';
 
 const users: User[] = [
-  { id: 1, email: 'admin', password: 'admin', firstName: 'Admin', lastName: 'User', role: Role.Admin },
-  { id: 2, email: 'user', password: 'user', firstName: 'Normal', lastName: 'User', role: Role.User },
-  { id: 3, email: 'tester', password: 'tester', firstName: 'Testing', lastName: 'User', role: Role.Tester }
+  { id: 1, email: 'admin', password: 'admin', firstName: 'Admin', lastName: 'User', role: RoleEnum.Admin },
+  { id: 2, email: 'user', password: 'user', firstName: 'Normal', lastName: 'User', role: RoleEnum.User },
+  { id: 3, email: 'tester', password: 'tester', firstName: 'Testing', lastName: 'User', role: RoleEnum.Tester }
 ];
 
 const categories: Category[] = [
@@ -198,7 +198,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     }
 
     function isAdmin() {
-      return isLoggedIn() && currentUser().role === Role.Admin;
+      return isLoggedIn() && currentUser().role === RoleEnum.Admin;
     }
 
     function currentUser() {

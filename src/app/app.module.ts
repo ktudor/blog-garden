@@ -31,7 +31,7 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
 // import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataService }  from '@app/_services';
 
-import { GlobalErrorHandler } from './_helpers';
+import { NotificationHandler } from './_helpers';
 
 // error File index.d.ts' is not a module.ts(2306)
 // https://github.com/angular/components/issues/17503
@@ -125,9 +125,10 @@ import { MatContenteditableModule } from 'mat-contenteditable';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }, 
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, 
-    { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    { provide: ErrorHandler, useClass: NotificationHandler },
+    // TODO Remove old code. This is now set based upon notification type.
     // Sets the default duration on snack bar. Otherwise, user must click button.
-    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500} },
+    //{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500} },
     // TODO: remove when backend is set up.
     { provide: HTTP_INTERCEPTORS, useClass: FakeBackendInterceptor, multi: true }
   ],

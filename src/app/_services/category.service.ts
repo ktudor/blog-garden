@@ -5,7 +5,7 @@ import { catchError, tap } from 'rxjs/operators';
 
 import { environment } from '@environments/environment';
 
-import { Category } from '@app/_models';
+import { Category, Notification, NotificationEnum } from '@app/_models';
 
 const apiUrl = `${environment.apiUrl}/category`;
 
@@ -36,8 +36,8 @@ export class CategoryService {
     return this.http.post<Category>(apiUrl, category).pipe(
       tap((prod: Category) => console.log(`added category w/ id=${category.id}`)),
       catchError(err => {
-        this.logError('addCategory', err);
-        throw new Error(err.error.message);
+        this.logError('addCategory', err.error.message);
+        throw new Notification('category.service', 'addCategory', err.error.message, NotificationEnum.Error);
       })
     );
   }
