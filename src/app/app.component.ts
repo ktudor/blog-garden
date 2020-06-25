@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
-import { environment } from '@environments/environment';
 import { Category, User, RoleEnum } from '@app/_models';
 import { AuthenticationService, CategoryService } from '@app/_services';
 

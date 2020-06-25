@@ -3,7 +3,6 @@
   <mat-menu #homeMenu="matMenu">
     <div>
       <button mat-menu-item [routerLink]="['/']">Home</button>
-      <button mat-menu-item [routerLink]="['/category']">Category</button>
       <button mat-menu-item [routerLink]="['/post']">Post</button>
     </div>
   </mat-menu>
@@ -13,6 +12,7 @@
   <mat-menu #userMenu="matMenu">
     <div *ngIf="isAdmin">
       <button mat-menu-item [routerLink]="['/admin']">Admin</button>
+      <button mat-menu-item [routerLink]="['/admin/category']">Category</button>
     </div>
     <div *ngIf="isLoggedIn">
       <button mat-menu-item (click)="logout()">Logout</button>

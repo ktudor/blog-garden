@@ -3,13 +3,14 @@ import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { CustomMaterialModule } from './custom-material/custom-material.module'
+
 import { LoginComponent } from './users/login/login.component';
 import { RegisterComponent } from './users/register/register.component';
 import { HomeComponent } from './home/home.component';
-import { AdminComponent } from './admin/admin.component';
 import { BycategoryComponent } from './bycategory/bycategory.component';
 import { DetailsComponent } from './details/details.component';
-import { CategoryComponent } from './category/category.component';
 import { PostComponent } from './post/post.component';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { PostAddComponent } from './post/post-add/post-add.component';
@@ -30,55 +31,14 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
 
 import { NotificationHandler } from './_helpers';
 
-// error File index.d.ts' is not a module.ts(2306)
-// https://github.com/angular/components/issues/17503
-// says breaking change. Use individual secondary entry-points
-// such as @angular/material/button.
-/*
-import {
-  MatInputModule,
-  MatPaginatorModule,
-  MatProgressSpinnerModule,
-  MatSortModule,
-  MatTableModule,
-  MatIconModule,
-  MatButtonModule,
-  MatCardModule,
-  MatFormFieldModule,
-  MatMenuModule,
-  MatToolbarModule } from '@angular/material';
-*/
-
-import { MatInputModule } from '@angular/material/input'
-import { MatPaginatorModule } from '@angular/material/paginator'
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
-import { MatSortModule } from '@angular/material/sort'
-import { MatTableModule } from '@angular/material/table'
-import { MatIconModule } from '@angular/material/icon'
-import { MatButtonModule } from '@angular/material/button'
-import { MatCardModule } from '@angular/material/card'
-import { MatCheckboxModule } from '@angular/material/checkbox'
-import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatMenuModule } from '@angular/material/menu'
-import { MatToolbarModule } from '@angular/material/toolbar'
-import { MatGridListModule } from '@angular/material/grid-list'
-import { MatSelectModule } from '@angular/material/select'
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { MatContenteditableModule } from 'mat-contenteditable';
-
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    AdminComponent,
     BycategoryComponent,
     DetailsComponent,
-    CategoryComponent,
     PostComponent,
     PostDetailsComponent,
     PostAddComponent,
@@ -89,7 +49,9 @@ import { MatContenteditableModule } from 'mat-contenteditable';
     HttpClientModule,
     AppRoutingModule,
 
-    /*
+    CustomMaterialModule,
+
+    /* TODO: remove this
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
@@ -98,24 +60,6 @@ import { MatContenteditableModule } from 'mat-contenteditable';
     ),
     */
     BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatProgressSpinnerModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatFormFieldModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatSelectModule,
-    CKEditorModule,
-    MatContenteditableModule,
     MatSnackBarModule
   ],
   providers: [

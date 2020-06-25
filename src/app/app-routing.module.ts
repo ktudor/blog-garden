@@ -4,8 +4,6 @@ import { LoginComponent } from './users/login/login.component';
 import { RegisterComponent } from './users/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
-import { AdminComponent } from './admin/admin.component';
-import { CategoryComponent } from './category/category.component';
 import { PostComponent } from './post/post.component';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { PostAddComponent } from './post/post-add/post-add.component';
@@ -13,7 +11,6 @@ import { PostEditComponent } from './post/post-edit/post-edit.component';
 import { BycategoryComponent } from './bycategory/bycategory.component';
 
 import { AuthGuard } from './_helpers/auth.guard';
-import { RoleEnum } from '@app/_models';
 
 const routes: Routes = [
   {
@@ -28,12 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    canActivate: [AuthGuard],
-    component: AdminComponent,
-    data: {
-      title: 'Blog Admin',
-      roles: [RoleEnum.Admin]
-    }
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
   {
     path: 'bycategory/:id',
@@ -54,12 +46,6 @@ const routes: Routes = [
     path: 'users/register',
     component: RegisterComponent,
     data: { title: 'Register' }
-  },
-  {
-    path: 'category',
-    canActivate: [AuthGuard],
-    component: CategoryComponent,
-    data: { title: 'Category' }
   },
   {
     path: 'post',

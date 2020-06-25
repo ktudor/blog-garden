@@ -27,8 +27,8 @@
         </mat-error>
       </mat-form-field>
       <div class="gblog-button-row">
-        <button type="submit" [disabled]="!categoryForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>
-        <button mat-flat-button color="primary" (click)="cancelForm()"><mat-icon>cancel</mat-icon></button>
+        <button type="submit" [disabled]="!categoryForm.valid" mat-flat-button class="gblog-button"><mat-icon>save</mat-icon></button>
+        <button type="button" mat-flat-button class="gblog-button" (click)="cancelForm()"><mat-icon>cancel</mat-icon></button>
       </div>
     </form>
   </mat-card>

@@ -47,11 +47,15 @@ table {
 }
 
 // Change cursor when it navigates over an icon used as a button.
+.gblog-button {
+  cursor: pointer;
+  background-color: #673ab7;
+}
+
 .gblog-icon-button {
   cursor: pointer;
   color: #673ab7;
 }
-
 .gblog-table-row-buttons {
   justify-content: flex-end;
 }
