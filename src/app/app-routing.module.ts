@@ -7,9 +7,6 @@ import { DetailsComponent } from './details/details.component';
 import { AdminComponent } from './admin/admin.component';
 import { CategoryComponent } from './category/category.component';
 import { PostComponent } from './post/post.component';
-import { CategoryDetailsComponent } from './category/category-details/category-details.component';
-import { CategoryAddComponent } from './category/category-add/category-add.component';
-import { CategoryEditComponent } from './category/category-edit/category-edit.component';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { PostAddComponent } from './post/post-add/post-add.component';
 import { PostEditComponent } from './post/post-edit/post-edit.component';
@@ -63,24 +60,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     component: CategoryComponent,
     data: { title: 'Category' }
-  },
-  {
-    path: 'category/details/:id',
-    canActivate: [AuthGuard],
-    component: CategoryDetailsComponent,
-    data: { title: 'Category Details' }
-  },
-  {
-    path: 'category/add',
-    canActivate: [AuthGuard],
-    component: CategoryAddComponent,
-    data: { title: 'Category Add' }
-  },
-  {
-    path: 'category/edit/:id',
-    canActivate: [AuthGuard],
-    component: CategoryEditComponent,
-    data: { title: 'Category Edit' }
   },
   {
     path: 'post',

@@ -1,3 +1,5 @@
+Table is not reloading data. Was adding selection (to delete), but broke moduel.
+
 From: https://www.djamware.com/post/5d88cb43e7939eec17dc4c89/mean-stack-angular-8-tutorial-build-a-simple-blog-cms
 
 Look at further:

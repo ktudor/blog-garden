@@ -10,9 +10,6 @@ import { AdminComponent } from './admin/admin.component';
 import { BycategoryComponent } from './bycategory/bycategory.component';
 import { DetailsComponent } from './details/details.component';
 import { CategoryComponent } from './category/category.component';
-import { CategoryDetailsComponent } from './category/category-details/category-details.component';
-import { CategoryAddComponent } from './category/category-add/category-add.component';
-import { CategoryEditComponent } from './category/category-edit/category-edit.component';
 import { PostComponent } from './post/post.component';
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { PostAddComponent } from './post/post-add/post-add.component';
@@ -60,6 +57,7 @@ import { MatTableModule } from '@angular/material/table'
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card'
+import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatToolbarModule } from '@angular/material/toolbar'
@@ -81,9 +79,6 @@ import { MatContenteditableModule } from 'mat-contenteditable';
     BycategoryComponent,
     DetailsComponent,
     CategoryComponent,
-    CategoryDetailsComponent,
-    CategoryAddComponent,
-    CategoryEditComponent,
     PostComponent,
     PostDetailsComponent,
     PostAddComponent,
@@ -113,6 +108,7 @@ import { MatContenteditableModule } from 'mat-contenteditable';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatCheckboxModule,
     MatFormFieldModule,
     MatMenuModule,
     MatToolbarModule,

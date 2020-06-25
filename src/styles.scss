@@ -25,9 +25,35 @@ table {
   max-width: 124px;
 }
 
+// adjust the styling for the select column so that its overflow is not hidden.
+.mat-column-select {
+  overflow: initial;
+}
+
+// Make selected checkbox same color as buttons.
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: #673ab7;
+}
+
 .gblog-container {
   position: relative;
   padding: 5px;
+}
+
+// Limit height of table with added scroll bar.
+.gblog-table-container {
+  height: 300px;
+  overflow: auto;
+}
+
+// Change cursor when it navigates over an icon used as a button.
+.gblog-icon-button {
+  cursor: pointer;
+  color: #673ab7;
+}
+
+.gblog-table-row-buttons {
+  justify-content: flex-end;
 }
 
 .gblog-full-width {
@@ -70,4 +96,14 @@ body {
 .gblog-test {
   background: rgb(0, 255, 128);
   color: black;    
+}
+
+// TODO: define styles
+// I had to put something in the style. Would not allow blank.
+.gblog-card {
+  width: 100%;
+}
+
+.gblog-table {
+  width: 100%;
 }

@@ -34,7 +34,10 @@ export class CategoryService {
 
   addCategory(category: Category): Observable<Category> {
     return this.http.post<Category>(apiUrl, category).pipe(
-      tap((prod: Category) => console.log(`added category w/ id=${category.id}`)),
+      tap((prod: Category) => {
+        // This message is being caught in catchError below
+        //throw new Notification('category.service', 'addCategory', `added category w/ id=${category.id}`, NotificationEnum.Information);
+      }),
       catchError(err => {
         this.logError('addCategory', err.error.message);
         throw new Notification('category.service', 'addCategory', err.error.message, NotificationEnum.Error);
@@ -42,19 +45,28 @@ export class CategoryService {
     );
   }
 
-  updateCategory(id: any, category: Category): Observable<any> {
-    const url = `${apiUrl}/${id}`;
+  updateCategory(category: Category): Observable<any> {
+    const url = `${apiUrl}/${category.id}`;
     return this.http.put(url, category).pipe(
-      tap(_ => console.log(`updated category id=${id}`)),
-      catchError(this.handleError<any>('updateCategory'))
+      tap((prod: Category) => {
+        // This message is being caught in catchError below
+        //throw new Notification('category.service', 'updateCategory', `updated category w/ id=${category.id}`, NotificationEnum.Information);
+      }),
+      catchError(err => {
+        this.logError('updateCategory', err.error.message);
+        throw new Notification('category.service', 'updateCategory', err.error.message, NotificationEnum.Error);
+      })
     );
   }
 
   deleteCategory(id: any): Observable<Category> {
     const url = `${apiUrl}/${id}`;
     return this.http.delete<Category>(url).pipe(
-      tap(_ => console.log(`deleted category id=${id}`)),
-      catchError(this.handleError<Category>('deleteCategory'))
+      //tap(_ => console.log(`deleted category id=${id}`)),
+      catchError(err => {
+        this.logError('deleteCategory', err.error.message);
+        throw new Notification('category.service', 'deleteCategory', err.error.message, NotificationEnum.Error);
+      })
     );
   }
 

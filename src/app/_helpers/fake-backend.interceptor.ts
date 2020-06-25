@@ -13,10 +13,10 @@ const users: User[] = [
 ];
 
 const categories: Category[] = [
-  { id: 1, catName: 'Vegetables', catDesc: 'Vegetable category' },
-  { id: 2, catName: 'Trees', catDesc: 'Tree category' },
-  { id: 3, catName: 'Pests', catDesc: 'Pests category' },
-  { id: 4, catName: 'Shrubs', catDesc: 'Shrubs category' }
+  { id: 1, name: 'Vegetables', description: 'Vegetable category' },
+  { id: 2, name: 'Trees', description: 'Tree category' },
+  { id: 3, name: 'Pests', description: 'Pests category' },
+  { id: 4, name: 'Shrubs', description: 'Shrubs category' }
 ];
 
 const posts: Post[] = [
@@ -60,6 +60,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return addCategory();
         case url.match(/\/category\/\d+$/) && method === 'PUT':
           return updateCategory();
+        case url.match(/\/category\/\d+$/) && method === 'DELETE':
+          return deleteCategory();
         case url.endsWith('/post') && method === 'GET':
           return getPosts();
         case url.match(/\/post\/\d+$/) && method === 'GET':
@@ -128,23 +130,31 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       const category = categories.find(x => x.id === idFromUrl());
       var categoryDTO: Category = new Category();
       categoryDTO.id = category.id;
-      categoryDTO.catName = category.catName;
-      categoryDTO.catDesc = category.catDesc;
+      categoryDTO.name = category.name;
+      categoryDTO.description = category.description;
       return ok(categoryDTO);
     }
 
     function addCategory() {
       const category = body;
-      if (categories.find(x => x.catName.toLowerCase() === category.catName.toLowerCase())) return error('category is already defined');
+      if (categories.find(x => x.name.toLowerCase() === category.name.toLowerCase())) return error('category is already defined');
       category.id = categories.length + 1;
       categories.push(category);
       return ok(category);
+    }
+
+    function deleteCategory() {
+      const categoryOld = categories.find(x => x.id === idFromUrl());
+      if (!categoryOld) return error('category was not found');
+      categories.splice(categories.indexOf(categoryOld),1);
+      return ok(categoryOld);
     }
 
     function updateCategory() {
       const category = body;
       const categoryOld = categories.find(x => x.id === idFromUrl());
       if (!categoryOld) return error('category was not found');
+      if (categories.find(x => x.name.toLowerCase() === category.name.toLowerCase()) != categoryOld) return error('category is already defined');
       categories[categories.indexOf(categoryOld)] = category;
       return ok(category);
     }

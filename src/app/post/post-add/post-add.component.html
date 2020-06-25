@@ -12,7 +12,7 @@
         <mat-form-field class="gblog-full-width">
           <mat-select formControlName="category" [errorStateMatcher]="matcher">
             <mat-option *ngFor="let cat of categories" [value]="cat._id">
-              {{cat.catName}}
+              {{cat.name}}
             </mat-option>
           </mat-select>
           <mat-error>
