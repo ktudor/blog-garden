@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Post } from '@app/_models';
-import { HomeService } from '@app/_services';
+import { PostService } from '@app/_services';
 
 @Component({
   selector: 'app-details',
@@ -14,18 +14,18 @@ export class DetailsComponent implements OnInit {
   post: Post = {
     category: '',
     id: null,
-    postTitle: '',
-    postAuthor: '',
-    postDesc: '',
-    postContent: '',
-    postReference: '',
-    postImgUrl: '',
+    title: '',
+    author: '',
+    description: '',
+    content: '',
+    reference: '',
+    imageUrl: '',
     created: null,
     updated: null
   };
   isLoadingResults = true;
 
-  constructor(private route: ActivatedRoute, private api: HomeService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private api: PostService, private router: Router) { }
 
   ngOnInit() {
     this.getPostDetails(this.route.snapshot.params.id);

@@ -17,18 +17,22 @@ export class CategoryService {
   constructor(private http: HttpClient) { }
 
   getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(apiUrl)
-      .pipe(
-        tap(_ => this.log('fetched Categories')),
-        catchError(this.handleError('getCategories', []))
-      );
+    return this.http.get<Category[]>(apiUrl).pipe(
+      // TODO remove old code; do we need pipe?
+      //tap(_ => this.log('fetched Categories')),
+      catchError(err => {
+        throw new Notification('category.service', 'getCategories', err.error.message, NotificationEnum.Error);
+      })
+    );
   }
 
   getCategory(id: any): Observable<Category> {
     const url = `${apiUrl}/${id}`;
     return this.http.get<Category>(url).pipe(
-      tap(_ => console.log(`fetched category by id=${id}`)),
-      catchError(this.handleError<Category>(`getCategory id=${id}`))
+      //tap(_ => console.log(`fetched category by id=${id}`)),
+      catchError(err => {
+        throw new Notification('category.service', 'getCategory', err.error.message, NotificationEnum.Error);
+      })
     );
   }
 
@@ -39,7 +43,6 @@ export class CategoryService {
         //throw new Notification('category.service', 'addCategory', `added category w/ id=${category.id}`, NotificationEnum.Information);
       }),
       catchError(err => {
-        this.logError('addCategory', err.error.message);
         throw new Notification('category.service', 'addCategory', err.error.message, NotificationEnum.Error);
       })
     );
@@ -48,12 +51,11 @@ export class CategoryService {
   updateCategory(category: Category): Observable<any> {
     const url = `${apiUrl}/${category.id}`;
     return this.http.put(url, category).pipe(
-      tap((prod: Category) => {
+      //tap((prod: Category) => {
         // This message is being caught in catchError below
         //throw new Notification('category.service', 'updateCategory', `updated category w/ id=${category.id}`, NotificationEnum.Information);
-      }),
+      //}),
       catchError(err => {
-        this.logError('updateCategory', err.error.message);
         throw new Notification('category.service', 'updateCategory', err.error.message, NotificationEnum.Error);
       })
     );
@@ -64,12 +66,12 @@ export class CategoryService {
     return this.http.delete<Category>(url).pipe(
       //tap(_ => console.log(`deleted category id=${id}`)),
       catchError(err => {
-        this.logError('deleteCategory', err.error.message);
         throw new Notification('category.service', 'deleteCategory', err.error.message, NotificationEnum.Error);
       })
     );
   }
 
+  /* notification.handler takes care of logging
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -88,4 +90,5 @@ export class CategoryService {
   private log(message: string) {
     console.log(message);
   }
+  */
 }

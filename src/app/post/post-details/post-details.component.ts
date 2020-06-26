@@ -14,12 +14,12 @@ export class PostDetailsComponent implements OnInit {
   post: Post = {
     category: '',
     id: null,
-    postTitle: '',
-    postAuthor: '',
-    postDesc: '',
-    postContent: '',
-    postReference: '',
-    postImgUrl: '',
+    title: '',
+    author: '',
+    description: '',
+    content: '',
+    reference: '',
+    imageUrl: '',
     created: null,
     updated: null
   };

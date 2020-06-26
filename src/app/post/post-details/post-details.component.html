@@ -8,17 +8,17 @@
     </div>
     <mat-card class="example-card">
       <mat-card-header>
-        <mat-card-title><h2>{{post.postTitle}}</h2></mat-card-title>
-        <p>Created by: {{post.postAuthor}}, {{post.created | date}}, updated: {{post.updated | date}}</p>
-        <mat-card-subtitle>{{post.postDesc}}</mat-card-subtitle>
+        <mat-card-title><h2>{{post.title}}</h2></mat-card-title>
+        <p>Created by: {{post.author}}, {{post.created | date}}, updated: {{post.updated | date}}</p>
+        <mat-card-subtitle>{{post.description}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image src="{{post.postImgUrl}}" alt="{{post.postTitle}}">
+      <img mat-card-image src="{{post.imageUrl}}" alt="{{post.title}}">
       <mat-card-content>
         <dl>
           <dt>Post Content:</dt>
-          <dd [innerHTML]="post.postContent"></dd>
+          <dd [innerHTML]="post.content"></dd>
           <dt>Reference:</dt>
-          <dd>{{post.postReference}}</dd>
+          <dd>{{post.reference}}</dd>
         </dl>
       </mat-card-content>
       <mat-card-actions>

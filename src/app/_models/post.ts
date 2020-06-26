@@ -1,12 +1,12 @@
 export class Post {
   id?: number;
   category?: string;
-  postTitle?: string;
-  postAuthor?: string;
-  postDesc?: string;
-  postContent?: string;
-  postReference?: string;
-  postImgUrl?: string;
+  title?: string;
+  author?: string;
+  description?: string;
+  content?: string;
+  reference?: string;
+  imageUrl?: string;
   created?: Date;
   updated?: Date;
 }

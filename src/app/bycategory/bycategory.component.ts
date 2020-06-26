@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Post } from '@app/_models';
-import { HomeService } from '@app/_services';
+import { PostService } from '@app/_services';
 
 @Component({
   selector: 'app-bycategory',
@@ -14,7 +14,7 @@ export class BycategoryComponent implements OnInit {
   posts: Post[] = [];
   isLoadingResults = true;
 
-  constructor(private route: ActivatedRoute, private api: HomeService) { }
+  constructor(private route: ActivatedRoute, private api: PostService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {

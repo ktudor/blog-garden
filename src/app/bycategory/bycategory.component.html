@@ -8,12 +8,12 @@
         <mat-card class="example-card" [routerLink]="['/details/', post._id]">
           <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{post.postTitle}}</mat-card-title>
+            <mat-card-title>{{post.title}}</mat-card-title>
             <mat-card-subtitle>{{post.updated}}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image src="{{post.postImgUrl}}" alt="Photo of a Shiba Inu">
+          <img mat-card-image src="{{post.imageUrl}}" alt="Photo of a Shiba Inu">
           <mat-card-content>
-            {{post.postDesc}}
+            {{post.description}}
           </mat-card-content>
         </mat-card>
       </mat-grid-tile>

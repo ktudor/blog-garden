@@ -20,45 +20,45 @@
           </mat-error>
         </mat-form-field>
         <mat-form-field class="gblog-full-width">
-          <input matInput placeholder="Post Title" formControlName="postTitle"
+          <input matInput placeholder="Post Title" formControlName="title"
                   [errorStateMatcher]="matcher">
           <mat-error>
-            <span *ngIf="!postForm.get('postTitle').valid && postForm.get('postTitle').touched">Please enter Post Title</span>
+            <span *ngIf="!postForm.get('title').valid && postForm.get('title').touched">Please enter Post Title</span>
           </mat-error>
         </mat-form-field>
         <mat-form-field class="gblog-full-width">
-          <input matInput placeholder="Post Author" formControlName="postAuthor"
+          <input matInput placeholder="Post Author" formControlName="author"
                   [errorStateMatcher]="matcher">
           <mat-error>
-            <span *ngIf="!postForm.get('postAuthor').valid && postForm.get('postAuthor').touched">Please enter Post Author</span>
+            <span *ngIf="!postForm.get('author').valid && postForm.get('author').touched">Please enter Post Author</span>
           </mat-error>
         </mat-form-field>
         <mat-form-field class="gblog-full-width">
-          <textarea matInput placeholder="Post Desc" formControlName="postDesc"
+          <textarea matInput placeholder="Post Desc" formControlName="description"
                   [errorStateMatcher]="matcher"></textarea>
           <mat-error>
-            <span *ngIf="!postForm.get('postDesc').valid && postForm.get('postDesc').touched">Please enter Post Description</span>
+            <span *ngIf="!postForm.get('description').valid && postForm.get('description').touched">Please enter Post Description</span>
           </mat-error>
         </mat-form-field>
         <mat-form-field class="gblog-full-width">
-            <ckeditor matCkeditor placehoder="Post Content" formControlName="postContent"></ckeditor>
+            <ckeditor matCkeditor placehoder="Post Content" formControlName="content"></ckeditor>
             <mat-error>
-              <span *ngIf="!postForm.get('postContent').valid && postForm.get('postContent').touched">Please enter Post Content</span>
+              <span *ngIf="!postForm.get('content').valid && postForm.get('content').touched">Please enter Post Content</span>
             </mat-error>
           </mat-form-field>
         <div class="gblog-button-row">
         <mat-form-field class="gblog-full-width">
-          <input matInput placeholder="Post Reference" formControlName="postReference"
+          <input matInput placeholder="Post Reference" formControlName="reference"
                   [errorStateMatcher]="matcher">
           <mat-error>
-            <span *ngIf="!postForm.get('postReference').valid && postForm.get('postReference').touched">Please enter Post Ref</span>
+            <span *ngIf="!postForm.get('reference').valid && postForm.get('reference').touched">Please enter Post Ref</span>
           </mat-error>
         </mat-form-field>
         <mat-form-field class="gblog-full-width">
-            <input matInput placeholder="Post Image URL" formControlName="postImgUrl"
+            <input matInput placeholder="Post Image URL" formControlName="imageUrl"
                     [errorStateMatcher]="matcher">
             <mat-error>
-              <span *ngIf="!postForm.get('postImgUrl').valid && postForm.get('postImgUrl').touched">Please enter Post Image URL</span>
+              <span *ngIf="!postForm.get('imageUrl').valid && postForm.get('imageUrl').touched">Please enter Post Image URL</span>
             </mat-error>
           </mat-form-field>
           <button type="submit" [disabled]="!postForm.valid" mat-flat-button color="primary"><mat-icon>save</mat-icon></button>

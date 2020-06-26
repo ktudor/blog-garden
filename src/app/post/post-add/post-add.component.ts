@@ -24,12 +24,12 @@ export class PostAddComponent implements OnInit {
 
   postForm: FormGroup;
   category = '';
-  postTitle = '';
-  postAuthor = '';
-  postDesc = '';
-  postContent = '';
-  postReference = '';
-  postImgUrl = '';
+  title = '';
+  author = '';
+  description = '';
+  content = '';
+  reference = '';
+  imageUrl = '';
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
   categories: Category[] = [];
@@ -44,12 +44,12 @@ export class PostAddComponent implements OnInit {
     this.getCategories();
     this.postForm = this.formBuilder.group({
       category : [null, Validators.required],
-      postTitle : [null, Validators.required],
-      postAuthor : [null, Validators.required],
-      postDesc : [null, Validators.required],
-      postContent : [null, Validators.required],
-      postReference : [null, Validators.required],
-      postImgUrl : [null, Validators.required]
+      title : [null, Validators.required],
+      author : [null, Validators.required],
+      description : [null, Validators.required],
+      content : [null, Validators.required],
+      reference : [null, Validators.required],
+      imageUrl : [null, Validators.required]
     });
   }
 

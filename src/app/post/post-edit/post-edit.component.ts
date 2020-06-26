@@ -24,12 +24,12 @@ export class PostEditComponent implements OnInit {
   postForm: FormGroup;
   category = '';
   id = '';
-  postTitle = '';
-  postAuthor = '';
-  postDesc = '';
-  postContent = '';
-  postReference = '';
-  postImgUrl = '';
+  title = '';
+  author = '';
+  description = '';
+  content = '';
+  reference = '';
+  imageUrl = '';
   updated: Date = null;
   isLoadingResults = false;
   matcher = new MyErrorStateMatcher();
@@ -46,12 +46,12 @@ export class PostEditComponent implements OnInit {
     this.getCategories();
     this.getPost(this.route.snapshot.params.id);
     this.postForm = this.formBuilder.group({
-      postTitle : [null, Validators.required],
-      postAuthor : [null, Validators.required],
-      postDesc : [null, Validators.required],
-      postContent : [null, Validators.required],
-      postReference : [null, Validators.required],
-      postImgUrl : [null, Validators.required]
+      title : [null, Validators.required],
+      author : [null, Validators.required],
+      description : [null, Validators.required],
+      content : [null, Validators.required],
+      reference : [null, Validators.required],
+      imageUrl : [null, Validators.required]
     });
   }
 
@@ -59,12 +59,12 @@ export class PostEditComponent implements OnInit {
     this.api.getPost(id).subscribe((data: any) => {
       this.id = data.id;
       this.postForm.setValue({
-        postTitle: data.postTitle,
-        postAuthor: data.postAuthor,
-        postDesc: data.postDesc,
-        postContent: data.postContent,
-        postReference: data.postReference,
-        postImgUrl: data.postImgUrl
+        title: data.title,
+        author: data.author,
+        description: data.description,
+        content: data.content,
+        reference: data.reference,
+        imageUrl: data.imageUrl
       });
     });
   }

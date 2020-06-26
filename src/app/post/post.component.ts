@@ -10,7 +10,7 @@ import { PostService } from '@app/_services';
 })
 export class PostComponent implements OnInit {
 
-  displayedColumns: string[] = ['postTitle', 'postDesc'];
+  displayedColumns: string[] = ['title', 'description'];
   data: Post[] = [];
   isLoadingResults = true;
 
