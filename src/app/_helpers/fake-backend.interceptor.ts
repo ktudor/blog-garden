@@ -20,10 +20,10 @@ const categories: Category[] = [
 ];
 
 const posts: Post[] = [
-  { id: 1, postTitle: 'Post 1', postDesc: 'Post 1 Description', postContent: '' },
-  { id: 2, postTitle: 'Post 2', postDesc: 'Post 2 Description', postContent: '' },
-  { id: 3, postTitle: 'Post 3', postDesc: 'Post 3 Description', postContent: '' },
-  { id: 4, postTitle: 'Post 4', postDesc: 'Post 4 Description', postContent: '' }
+  { id: 1, title: 'Post 1', description: 'Post 1 Description', content: '' },
+  { id: 2, title: 'Post 2', description: 'Post 2 Description', content: '' },
+  { id: 3, title: 'Post 3', description: 'Post 3 Description', content: '' },
+  { id: 4, title: 'Post 4', description: 'Post 4 Description', content: '' }
 ];
 
 @Injectable()
@@ -167,14 +167,14 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       const post = posts.find(x => x.id === idFromUrl());
       var postDTO: Post = new Post();
       postDTO.id = post.id;
-      postDTO.postTitle = post.postTitle;
-      postDTO.postDesc = post.postDesc;
+      postDTO.title = post.title;
+      postDTO.description = post.description;
       return ok(postDTO);
     }
 
     function addPost() {
       const post = body;
-      if (posts.find(x => x.postTitle.toLowerCase() === post.postTitle.toLowerCase())) return error('post is already defined');
+      if (posts.find(x => x.title.toLowerCase() === post.title.toLowerCase())) return error('post is already defined');
       post.id = posts.length + 1;
       posts.push(post);
       return ok(post);

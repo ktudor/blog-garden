@@ -1,0 +1,6 @@
+Added file upload and separate API server
+  Source: https://malcoded.com/posts/angular-file-upload-component-with-express/
+    Also look at: https://www.twilio.com/blog/transfer-files-data-javascript-applications-angular-node-js
+                  https://www.freecodecamp.org/news/how-to-make-image-upload-easy-with-angular-1ed14cb2773b/
+
+  Files affected:

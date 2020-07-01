@@ -50,10 +50,11 @@ export class NotificationHandler implements ErrorHandler {
       return new Notification('HTTP', 'unknown', 'No internet connection', NotificationEnum.Error);
     }
 
-    let message: string = null;
+    let message: string = error.message;
+    const newMessage = serverMessages.find(x => x.status == error.status);
 
-    if (error.status) {
-      message = serverMessages.find(x => x.status == error.status).message.concat(error.url);
+    if (newMessage) {
+      message = newMessage.message.concat(error.url);
     }
 
     return new Notification('HTTP', 'unknown', message, NotificationEnum.Error);

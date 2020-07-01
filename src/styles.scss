@@ -1,21 +1,11 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/*
 table {
   width: 100%;
 }
 
-.gblog-loading-shade {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 56px;
-  right: 0;
-  background: rgba(0, 0, 0, 0.15);
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Column Widths */
+// Column Widths
 .mat-column-number,
 .mat-column-state {
   max-width: 64px;
@@ -33,6 +23,35 @@ table {
 // Make selected checkbox same color as buttons.
 .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background, .mat-checkbox-checked.mat-accent .mat-checkbox-background {
   background-color: #673ab7;
+}
+
+html, body { height: 100%; }
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.error {
+  background-color: red;
+  color: white;    
+}
+
+.error button {
+  background-color:orangered;
+  color: white;
+}
+*/
+
+.gblog-loading-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 56px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .gblog-container {
@@ -82,20 +101,6 @@ table {
   margin-right: 8px;
 }
 
-html, body { height: 100%; }
-body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-.error {
-  background-color: red;
-  color: white;    
-}
-
-.error button {
-  background-color:orangered;
-  color: white;
-}
 
 .gblog-test {
   background: rgb(0, 255, 128);
@@ -110,4 +115,24 @@ body {
 
 .gblog-table {
   width: 100%;
+}
+
+// css for file upload component
+.gblog-upload-add-files-btn {
+  float: right;
+}
+
+:host {
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.gblog-upload-actions {
+  justify-content: flex-end;
+}
+
+.gblog-upload-container {
+  height: 100%;
 }
