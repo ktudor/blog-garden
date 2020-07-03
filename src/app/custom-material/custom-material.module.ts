@@ -22,7 +22,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { UploadComponent } from './upload/upload.component';
-import { DialogComponent } from './upload/dialog/dialog.component'
+import { UploadDialogComponent } from './upload/dialog/uploadDialog.component'
 
 // List of other modules we may need in future
 /*
@@ -37,7 +37,7 @@ import { MatContenteditableModule } from 'mat-contenteditable';
 @NgModule({
   declarations: [
     UploadComponent,
-    DialogComponent
+    UploadDialogComponent
   ],
   imports: [
     CommonModule,
@@ -104,6 +104,6 @@ import { MatContenteditableModule } from 'mat-contenteditable';
 
     UploadComponent
   ],
-  entryComponents: [DialogComponent] // Add the DialogComponent as entry component
+  entryComponents: [UploadDialogComponent] // Add the UploadDialogComponent as entry component
 })
 export class CustomMaterialModule { }

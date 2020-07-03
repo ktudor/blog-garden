@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UploadComponent } from './upload.component';
-import { DialogComponent } from './dialog/dialog.component';
+import { UploadDialogComponent } from './dialog/uploadDialog.component';
 
 
 
@@ -9,8 +9,8 @@ import { DialogComponent } from './dialog/dialog.component';
   imports: [
     CommonModule
   ],
-  declarations: [UploadComponent, DialogComponent],
+  declarations: [UploadComponent, UploadDialogComponent],
   exports: [UploadComponent],
-  entryComponents: [DialogComponent], // Add the DialogComponent as entry component
+  entryComponents: [UploadDialogComponent], // Add the UploadDialogComponent as entry component
 })
 export class UploadModule { }

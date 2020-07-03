@@ -10,5 +10,6 @@ export class LoggingService {
     // Send errors to be saved here
     // The console.log is only for testing this example.
     console.log('LoggingService: ' + notification.message);
+    console.log(`LoggingService: ${notification.source}.${notification.method} threw the error: ${notification.message}`);
   }
 }

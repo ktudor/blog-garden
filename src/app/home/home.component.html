@@ -1,5 +1,5 @@
 <p>Home Page</p>
-<app-upload></app-upload>
+<app-upload [singleFile]="true" (uploadedFiles)="onUploadedFiles($event)"></app-upload>
 <div class="gblog-container mat-elevation-z8">
   <div class="gblog-loading-shade"
         *ngIf="isLoadingResults">

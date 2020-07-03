@@ -32,4 +32,8 @@ export class HomeComponent implements OnInit {
           throw error;
         });
   }
+
+  onUploadedFiles(uploadedFiles: string[]) {
+    console.log(`Dialog closed with ${uploadedFiles.length} files.`);
+  }
 }

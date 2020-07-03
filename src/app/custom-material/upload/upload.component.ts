@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from './dialog/dialog.component';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { UploadDialogComponent } from './dialog/uploadDialog.component';
 import { UploadService } from '@app/_services';
+import { DialogConfig } from '@app/_models';
 
 @Component({
   selector: 'app-upload',
@@ -9,9 +10,35 @@ import { UploadService } from '@app/_services';
   styleUrls: ['./upload.component.scss']
 })
 export class UploadComponent {
-  constructor(public dialog: MatDialog, public uploadService: UploadService) { }
+  @Input('singleFile') singleFile: boolean = false;
+  @Output() uploadedFiles = new EventEmitter<string[]>();
+
+  constructor(
+    public dialog: MatDialog,
+    public uploadService: UploadService
+  ) { }
 
   public openUploadDialog() {
-    let dialogRef = this.dialog.open(DialogComponent, { width: '50%', height: '50%' });
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.width = '50%';
+    dialogConfig.height = '50%';
+
+    const config: DialogConfig =  {
+      title: 'Upload Single Image',
+      singleFile: this.singleFile
+    };
+    
+    dialogConfig.data = config;
+
+    const dialogRef = this.dialog.open(UploadDialogComponent, dialogConfig);
+
+    // Uploaded file array is passed back in event data.
+    dialogRef.afterClosed().subscribe(event => {
+      const uploadedFiles = event.data as string[];
+      console.log(`UploadComponent received ${uploadedFiles.length} files.`);
+      this.uploadedFiles.emit(uploadedFiles);
+    });
   }
 }
