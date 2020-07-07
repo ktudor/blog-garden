@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpRequest, HttpEventType, HttpResponse, HttpHeaders, HttpHeaderResponse } from '@angular/common/http'
 import { Observable, Subject } from 'rxjs'
+import { UploadFile } from '@app/_models'
 
 const urlMultiple = 'http://localhost:3000/multiple-upload'
 const urlSingle = 'http://localhost:3000/single-upload'
@@ -11,21 +12,21 @@ const urlSingle = 'http://localhost:3000/single-upload'
 export class UploadService {
   constructor(private http: HttpClient) {}
 
-  public upload(files: Set<File>, uploadedFiles: String[]):
+  public upload(files: Set<UploadFile>, uploadedFiles: String[]):
     { [key: string]: { progress: Observable<number> } } {
 
     // this will be the our resulting map
     const status: { [key: string]: { progress: Observable<number> } } = {};
 
-    files.forEach(file => {
+    files.forEach(uploadFile => {
       // create a new multipart-form for every file
       const formData: FormData = new FormData();
 
       //formData.append('file', file, file.name);
+      //const files = new Array(file);
+      //const filesString = JSON.stringify(files);
       // Api wants data as array named files
-      const files = new Array(file);
-      const filesString = JSON.stringify(files);
-      formData.append('image', file);
+      formData.append('image', uploadFile.file);
       const test1 = formData.getAll('image');
 
       // create a http-post request and pass the form
@@ -62,7 +63,7 @@ export class UploadService {
       });
 
       // Save every progress-observable in a map of all observables
-      status[file.name] = {
+      status[uploadFile.name] = {
         progress: progress.asObservable()
       };
     });

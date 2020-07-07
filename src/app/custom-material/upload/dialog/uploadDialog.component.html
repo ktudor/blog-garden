@@ -1,5 +1,5 @@
 <form id='dialogForm' class="mt-4" enctype="multipart/form-data">
-  <input #file type="file" style="display: none" (change)="onFilesAdded($event)" multiple class="form-control-file border"/>
+  <input #file type="file" style="display: none" (change)="onFilesAdded($event)" class="form-control-file border"/>
   <!--<input type="file" #file name="images" style="display: none" (change)="onFilesAdded($event)" multiple class="form-control-file border" id="input-images"/>-->
 </form>
 <div class="container" fxLayout="column" fxLayoutAlign="space-evenly stretch">
@@ -14,7 +14,8 @@
   <mat-dialog-content fxFlex>
     <mat-list>
       <mat-list-item *ngFor="let file of files">
-        <h4 mat-line>{{file.name}}</h4>
+        <img height="100px" width="100px" [src]="domSanitizer.bypassSecurityTrustUrl(file.url)">
+        <!--<h4 mat-line>{{file.name}}</h4>-->
         <mat-progress-bar *ngIf="progress" mode="determinate" [value]="progress[file.name].progress | async"></mat-progress-bar>
       </mat-list-item>
     </mat-list>
@@ -25,9 +26,4 @@
     <button mat-button mat-dialog-close (click)="closeDialog()">{{cancelCloseText}}</button>
     <button *ngIf="showUploadButton" mat-raised-button color="primary" [disabled]="uploading" (click)="uploadFiles()">Upload</button>
   </mat-dialog-actions>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="preview-images"></div>
-    </div>
-  </div>
 </div>

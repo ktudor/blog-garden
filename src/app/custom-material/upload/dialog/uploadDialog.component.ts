@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, Inject, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { DomSanitizer } from '@angular/platform-browser';
 import { UploadService } from '@app/_services'
 import { forkJoin } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { DialogConfig } from '@app/_models';
+import { DialogConfig, UploadFile } from '@app/_models';
 
 @Component({
   selector: 'app-uploadDialog',
@@ -14,13 +15,14 @@ import { DialogConfig } from '@app/_models';
 export class UploadDialogComponent implements OnInit {
   @ViewChild('file', { static: false }) file: ElementRef;
 
-  public dialogTitle: string = 'Upload Files';
+  public dialogTitle: string = 'Upload Image';
   public singleFile: boolean = false;
-  public files: Set<File> = new Set();
+  public files: Set<UploadFile> = new Set();
 
   constructor(
     public dialogRef: MatDialogRef<UploadDialogComponent>,
     public uploadService: UploadService,
+    public domSanitizer: DomSanitizer,
     private formBuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) dialogConfig : DialogConfig)
     {
@@ -37,19 +39,19 @@ export class UploadDialogComponent implements OnInit {
   uploadForm: FormGroup;
   progress: any;
   showUploadButton: boolean = false;
-  //canBeClosed: boolean = true;
   cancelCloseText: string = 'Close';
   uploading: boolean = false;
-  //uploadSuccessful: boolean = false;
   uploadedFiles: string[] = new Array<string>();
+  imgsrc: any;
 
   onFilesAdded(event: any) {
-    const files: { [key: string]: File } = this.file.nativeElement.files;
-    for (let key in files) {
-      if (!isNaN(parseInt(key))) {
-        this.files.add(files[key]);
-      }
-    }
+    this.files.clear();
+    const selectedFiles: FileList = event.srcElement.files;
+    for (var i = 0; i < selectedFiles.length; i++) {
+      const uploadFile = new UploadFile(selectedFiles[i]);
+      uploadFile.url = window.URL.createObjectURL(selectedFiles[i]);
+      this.files.add(uploadFile);
+    };
 
     this.showUploadButton = true;
     this.cancelCloseText = 'Cancel';

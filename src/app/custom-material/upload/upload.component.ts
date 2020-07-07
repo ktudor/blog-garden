@@ -26,10 +26,10 @@ export class UploadComponent {
     dialogConfig.height = '50%';
 
     const config: DialogConfig =  {
-      title: 'Upload Single Image',
+      title: 'Upload Image',
       singleFile: this.singleFile
     };
-    
+
     dialogConfig.data = config;
 
     const dialogRef = this.dialog.open(UploadDialogComponent, dialogConfig);

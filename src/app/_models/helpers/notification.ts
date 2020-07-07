@@ -1,4 +1,4 @@
-import { NotificationEnum } from './enums/notificationEnum';
+import { NotificationEnum } from '../enums/notificationEnum';
 
 export class Notification {
 
