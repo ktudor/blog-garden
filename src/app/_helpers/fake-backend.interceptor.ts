@@ -20,8 +20,8 @@ const categories: Category[] = [
 ];
 
 const posts: Post[] = [
-  { id: 1, title: 'Post 1', description: 'Post 1 Description', content: 'Post 1 content', imageUrl: 'http://localhost:3000/images/gblog-20180704_192334-1594052375635.jpeg' },
-  { id: 2, title: 'Post 2', description: 'Post 2 Description', content: 'Post 2 content', imageUrl: 'http://localhost:3000/images/20180704_192334.jpg' },
+  { id: 1, title: 'Post 1', description: 'Post 1 Description', content: 'Post 1 content', imageUrl: 'http://localhost:3000/thumbnail?image=gblog-20180704_192334-1594331124043.jpg' },
+  { id: 2, title: 'Post 2', description: 'Post 2 Description', content: 'Post 2 content', imageUrl: 'http://localhost:3000/thumbnail?image=gblog-20180823_191434-1594331167306.jpg' },
   { id: 3, title: 'Post 3', description: 'Post 3 Description', content: '' },
   { id: 4, title: 'Post 4', description: 'Post 4 Description', content: '' }
 ];

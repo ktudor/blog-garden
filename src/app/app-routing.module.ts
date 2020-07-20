@@ -9,6 +9,7 @@ import { PostDetailsComponent } from './post/post-details/post-details.component
 import { PostAddComponent } from './post/post-add/post-add.component';
 import { PostEditComponent } from './post/post-edit/post-edit.component';
 import { BycategoryComponent } from './bycategory/bycategory.component';
+import { GalleryComponent } from '@app/custom-material/gallery/gallery.component';
 
 import { AuthGuard } from './_helpers/auth.guard';
 
@@ -70,6 +71,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     component: PostEditComponent,
     data: { title: 'Post Edit' }
+  },
+  {
+    path: 'gallery',
+    canActivate: [AuthGuard],
+    component: GalleryComponent,
+    data: { title: 'Gallery' }
   }
 ];
 

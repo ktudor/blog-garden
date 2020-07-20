@@ -1,0 +1,1 @@
+Source: https://medium.com/allenhwkim/simple-lazy-loading-with-angular-716dd3b174a

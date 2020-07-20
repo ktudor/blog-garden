@@ -1,0 +1,6 @@
+Source: https://dzone.com/articles/angular-image-gallery-with-bootstrap
+
+return json object
+      http://researchhubs.com/post/computing/javascript/convert-directory-structure--to-json-with-node-js.html
+      https://stackoverflow.com/questions/38104090/how-can-i-read-files-from-directory-and-send-as-json-to-client
+      

@@ -25,6 +25,7 @@
     "@ckeditor/ckeditor5-angular": "^1.2.3",
     "@ckeditor/ckeditor5-build-classic": "^20.0.0",
     "angular-in-memory-web-api": "^0.11.0",
+    "bootstrap": "^4.5.0",
     "mat-contenteditable": "^9.1.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

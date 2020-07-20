@@ -4,6 +4,7 @@
     <div>
       <button mat-menu-item [routerLink]="['/']">Home</button>
       <button mat-menu-item [routerLink]="['/post']">Post</button>
+      <button mat-menu-item [routerLink]="['/gallery']">Gallery</button>
     </div>
   </mat-menu>
   <button *ngIf="!isLoggedIn" mat-menu-item [routerLink]="['/users/register']">Sign Up</button>

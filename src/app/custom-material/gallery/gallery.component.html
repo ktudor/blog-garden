@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 style="text-align: center;">
+    Welcome to Gallery
+  </h1>
+  <br>
+  <div class="card-columns">
+    <div class="card" *ngFor="let item of galleryResponse?.items">
+      <img class="card-img-top" [src]="item.link" [alt]="item.title" (click)="onImageClick('item.title')" />
+      <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <!-- <p class="card-text">
+          Uploaded by {{ item.author_id }} on
+          {{ item.published | date: "medium" }}
+        </p> -->
+        <p class="card-text">{{ item.title }}</p>
+        <hr>
+        <!-- <p class="card-text">
+          <small class="text-muted">{{ item.tags }}</small>
+        </p> -->
+      </div>
+    </div>
+  </div>
+</div>
